@@ -1,4 +1,5 @@
-import 'package:delivery_by_bike_sellers/widgets/reuseable_widget.dart';
+
+import 'package:botanik_bahcem/features/login/presentation/widgets/reuseable_widget.dart';
 import 'package:flutter/material.dart';
 
 class ErrorDialog extends StatelessWidget {
