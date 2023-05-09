@@ -1,4 +1,5 @@
 import 'package:botanik_bahcem/features/home/presentation/pages/home_page.dart';
+import 'package:botanik_bahcem/features/register/presentation/pages/register_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -61,47 +62,50 @@ class _SignInScreenState extends State<SignInScreen> {
     }).catchError((error) {
       Navigator.pop(context);
     });
+    Navigator.pop(context);
+       Navigator.push(
+           context, MaterialPageRoute(builder: (c) => const HomePage()));
 
-    if (currentUser != null) {
-      readDataAndSetDataLocally(currentUser!).then((value) {
-        Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (c) => const HomePage()));
-      });
-    }
+ //  if (currentUser != null) {
+ //    readDataAndSetDataLocally(currentUser!).then((value) {
+ //      Navigator.pop(context);
+ //      Navigator.push(
+ //          context, MaterialPageRoute(builder: (c) => const HomePage()));
+ //    });
+ //  }
   }
 
-  Future readDataAndSetDataLocally(User currentUser) async {
-    await FirebaseFirestore.instance
-        .collection("sellers")
-        .doc(currentUser.uid)
-        .get()
-        .then((snapshot) async {
-      if (snapshot.exists) {
-        await sharedPreferences!.setString("uid", currentUser.uid);
-        await sharedPreferences!
-            .setString("email", snapshot.data()!["sellerEmail"]);
-        await sharedPreferences!
-            .setString("name", snapshot.data()!["sellerName"]);
-        await sharedPreferences!
-            .setString("photoUrl", snapshot.data()!["sellerAvatarUrl"]);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (c) => HomePage()));
-      } else {
-        fAuth.signOut();
-        Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (c) => SignInScreen()));
-        showDialog(
-            context: context,
-            builder: (c) {
-              return const ErrorDialog(
-                message: "No record exists. ",
-              );
-            });
-      }
-    });
-  }
+// Future readDataAndSetDataLocally(User currentUser) async {
+//   await FirebaseFirestore.instance
+//       .collection("sellers")
+//       .doc(currentUser.uid)
+//       .get()
+//       .then((snapshot) async {
+//     if (snapshot.exists) {
+//       await sharedPreferences!.setString("uid", currentUser.uid);
+//       await sharedPreferences!
+//           .setString("email", snapshot.data()!["sellerEmail"]);
+//       await sharedPreferences!
+//           .setString("name", snapshot.data()!["sellerName"]);
+//       await sharedPreferences!
+//           .setString("photoUrl", snapshot.data()!["sellerAvatarUrl"]);
+//       Navigator.push(
+//           context, MaterialPageRoute(builder: (c) => HomePage()));
+//     } else {
+//       fAuth.signOut();
+//       Navigator.pop(context);
+//       Navigator.push(
+//           context, MaterialPageRoute(builder: (c) => SignInScreen()));
+//       showDialog(
+//           context: context,
+//           builder: (c) {
+//             return const ErrorDialog(
+//               message: "No record exists. ",
+//             );
+//           });
+//     }
+//   });
+// }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +120,7 @@ class _SignInScreenState extends State<SignInScreen> {
               20, MediaQuery.of(context).size.height * 0.12, 20, 0),
           child: Column(
             children: <Widget>[
-              logoImage("assets/images/BikeAnimated.png"),
+              logoImage("assets/images/botanik-bahcem.webp"),
               const SizedBox(
                 height: 10,
               ),
@@ -165,8 +169,8 @@ Row signUpOption(BuildContext context) {
       ),
       GestureDetector(
         onTap: () {
-      //    Navigator.push(
-      //        context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const RegisterPage()));
         },
         child: Text(
           "Sign Up",

@@ -30,7 +30,6 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
-  TextEditingController _locationTextController = TextEditingController();
 
   XFile? imageXFile;
   final ImagePicker _picker = ImagePicker();
@@ -59,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
           });
     } else {
       if (_passwordTextController.text.isNotEmpty &&
-          _locationTextController.text.isNotEmpty &&
+          
           _emailTextController.text.isNotEmpty &&
           _userNameTextController.text.isNotEmpty) {
         showDialog(
