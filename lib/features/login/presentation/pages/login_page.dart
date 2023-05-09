@@ -1,210 +1,178 @@
+import 'package:botanik_bahcem/features/home/presentation/pages/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:botanik_bahcem/presentation/resources/color_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
+
+
 
 import '../../../../core/global/global.dart';
-import '../../../home/presentation/pages/home_page.dart';
-
-import '../../../home/presentation/splash_screen.dart';
+import '../widgets/error_dialog.dart';
 import '../widgets/loading_dialog.dart';
+import '../widgets/reuseable_widget.dart';
 
 
-
-class LoginPage extends StatefulWidget
-{
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
+class _SignInScreenState extends State<SignInScreen> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
 
-
-
-class _LoginPageState extends State<LoginPage>
-{
-  TextEditingController emailTextEditingController = TextEditingController();
-  TextEditingController passwordTextEditingController = TextEditingController();
-
-
-  validateForm()
-  {
-    if(!emailTextEditingController.text.contains("@"))
-    {
-      Fluttertoast.showToast(msg: "Email address is not Valid.");
-    }
-    else if(passwordTextEditingController.text.isEmpty)
-    {
-      Fluttertoast.showToast(msg: "Password is required.");
-    }
-    else
-    {
-      loginDriverNow();
+  formValidation() {
+    if (_emailTextController.text.isNotEmpty &&
+        _passwordTextController.text.isNotEmpty) {
+      // login
+      loginNow();
+    } else {
+      showDialog(
+          context: context,
+          builder: (c) {
+            return ErrorDialog(
+              message: "Please write email/password.",
+            );
+          });
     }
   }
 
-  loginDriverNow() async
-  {
+  loginNow() async {
     showDialog(
         context: context,
-        barrierDismissible: false,
-        builder: (BuildContext c)
-        {
-          return LoadingDialog(message: "Processing, Please wait...",);
-        }
-    );
+        builder: (c) {
+          return const LoadingDialog(
+            message: "Checking Credentials",
+          );
+        });
 
-    final User? firebaseUser = (
-        await fAuth.signInWithEmailAndPassword(
-          email: emailTextEditingController.text.trim(),
-          password: passwordTextEditingController.text.trim(),
-        ).catchError((msg){
-          Navigator.pop(context);
-          Fluttertoast.showToast(msg: "Error: " + msg.toString());
-        })
-    ).user;
-
-    if(firebaseUser != null)
-    {
-      DatabaseReference driversRef = FirebaseDatabase.instance.ref().child("users");
-      driversRef.child(firebaseUser.uid).once().then((driverKey)
-      {
-        final snap = driverKey.snapshot;
-        if(snap.value != null){
-          currentFirebaseUser = firebaseUser;
-          Fluttertoast.showToast(msg: "Login Successful.");
-          Navigator.push(context, MaterialPageRoute(builder: (c)=> const MySplashScreen()));
-        }
-        else{
-          Fluttertoast.showToast(msg: 'No record exist with this email');
-          fAuth.signOut();
-          Navigator.push(context, MaterialPageRoute(builder: (c)=> const MySplashScreen()));
-        } });
-    }
-    else
-    {
+    User? currentUser;
+    await fAuth
+        .signInWithEmailAndPassword(
+      email: _emailTextController.text.trim(),
+      password: _passwordTextController.text.trim(),
+    )
+        .then((auth) {
+      currentUser = auth.user!;
+    }).catchError((error) {
       Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Error Occurred during Login.");
+    });
+
+    if (currentUser != null) {
+      readDataAndSetDataLocally(currentUser!).then((value) {
+        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (c) => const HomePage()));
+      });
     }
+  }
+
+  Future readDataAndSetDataLocally(User currentUser) async {
+    await FirebaseFirestore.instance
+        .collection("sellers")
+        .doc(currentUser.uid)
+        .get()
+        .then((snapshot) async {
+      if (snapshot.exists) {
+        await sharedPreferences!.setString("uid", currentUser.uid);
+        await sharedPreferences!
+            .setString("email", snapshot.data()!["sellerEmail"]);
+        await sharedPreferences!
+            .setString("name", snapshot.data()!["sellerName"]);
+        await sharedPreferences!
+            .setString("photoUrl", snapshot.data()!["sellerAvatarUrl"]);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (c) => HomePage()));
+      } else {
+        fAuth.signOut();
+        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (c) => SignInScreen()));
+        showDialog(
+            context: context,
+            builder: (c) {
+              return const ErrorDialog(
+                message: "No record exists. ",
+              );
+            });
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.white,
-      body: SingleChildScrollView(
+
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.fromLTRB(
+              20, MediaQuery.of(context).size.height * 0.12, 20, 0),
           child: Column(
-            children: [
-
-              const SizedBox(height: 30,),
-
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.asset("assets/images/botanik-bahcem.webp"),
+            children: <Widget>[
+              logoImage("assets/images/BikeAnimated.png"),
+              const SizedBox(
+                height: 10,
               ),
-
-              const SizedBox(height: 10,),
-
-              const Text(
-                "Login as a User",
-                style: TextStyle(
-                  fontSize: 26,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              TextField(
-                controller: emailTextEditingController,
-                keyboardType: TextInputType.emailAddress,
-                style: const TextStyle(
-                    color: Colors.grey
-                ),
-                decoration: const InputDecoration(
-                  labelText: "Email",
-                  hintText: "Email",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 10,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-
-              TextField(
-                controller: passwordTextEditingController,
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                style: const TextStyle(
-                    color: Colors.grey
-                ),
-                decoration: const InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 10,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 20,),
-
-              ElevatedButton(
-                onPressed: ()
-                {
-                  validateForm();
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.lightGreenAccent,
-                ),
-                child: const Text(
-                  "Login",
+              const Padding(
+                padding: EdgeInsets.all(18.0),
+                child: Text(
+                  'ECO-COURIER SELLERS',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 18,
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontFamily: "Monoton",
+                    letterSpacing: 3,
                   ),
                 ),
               ),
-
-              TextButton(
-                child: const Text(
-                  "Do not have an Account? SignUp Here",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                onPressed: ()
-                {
-                  Navigator.push(context, MaterialPageRoute(builder: (c)=> HomePage()));
-                },
-              ),
-
+              SizedBox(height: 20),
+              reuseableTextField('Email', Icons.person_outline, false, true,
+                  _emailTextController),
+              SizedBox(height: 20),
+              reuseableTextField('Password', Icons.lock_outline, true, true,
+                  _passwordTextController),
+              SizedBox(height: 40),
+              signInSignOutButton(context, true, () {
+                formValidation();
+              }),
+              SizedBox(height: 10),
+              signUpOption(context)
             ],
           ),
         ),
       ),
+
     );
+
   }
+}
+
+Row signUpOption(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(
+        "Don't have Account? ",
+        style: TextStyle(color: Colors.black),
+      ),
+      GestureDetector(
+        onTap: () {
+      //    Navigator.push(
+      //        context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+        },
+        child: Text(
+          "Sign Up",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
+    ],
+  );
 }
