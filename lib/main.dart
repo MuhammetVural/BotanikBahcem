@@ -1,9 +1,15 @@
 import 'package:botanik_bahcem/features/home/presentation/splash_screen.dart';
+import 'package:botanik_bahcem/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'features/login/presentation/pages/login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

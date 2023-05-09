@@ -20,7 +20,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
 
 
     Timer(const Duration(seconds: 5), () async {
-      Navigator.push(context, MaterialPageRoute(builder: (c)=> LoginPage()));
+      Navigator.push(context, MaterialPageRoute(builder: (c)=> HomePage()));
 
 //      if(fAuth.currentUser != null){
 //
