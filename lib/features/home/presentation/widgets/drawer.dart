@@ -20,7 +20,7 @@ class MainDrawer extends StatelessWidget {
               backgroundImage: AssetImage("assets/images/botanik-bahcem.webp"),
             ),
             title: Text(
-              "AI SEZER",
+              "Botanik Bahçem",
               style: TextStyle(fontSize: 22),
             ), //subtitle: Text("Terapist"),
           ),
@@ -46,7 +46,7 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             title: const Text(
-              "Üye İşlemleri",
+              "Bitkini Paylaş",
               style: TextStyle(fontSize: 22),
             ),
             trailing: const Icon(Icons.arrow_forward_ios_outlined),
@@ -82,51 +82,51 @@ class MainDrawer extends StatelessWidget {
 
           ListTile(
             onTap: () {},
-            contentPadding: EdgeInsets.only(left: 40, right: 30),
+            contentPadding: const EdgeInsets.only(left: 40, right: 30),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.yellow[800]!.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.local_hospital_outlined,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Sağlık Kuruluşu Kayıt",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
           ),
           ListTile(
             onTap: () {},
-            contentPadding: EdgeInsets.only(
+            contentPadding: const EdgeInsets.only(
               left: 40,
               right: 30,
             ),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.blue.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.person_outline_rounded,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Doktor Giriş",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
@@ -137,27 +137,27 @@ class MainDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (c) => const SignInScreen()));
               fAuth.signOut();
             },
-            contentPadding: EdgeInsets.only(
+            contentPadding: const EdgeInsets.only(
               left: 40,
               right: 30,
             ),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: Colors.blue.withOpacity(0.2),
+                color: Colors.red.withOpacity(0.3),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                Icons.person_outline_rounded,
+              child: const Icon(
+                Icons.exit_to_app,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Oturumu Kapat",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
@@ -165,100 +165,100 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             onTap: () {},
             contentPadding:
-                EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 CupertinoIcons.hand_thumbsup,
                 color: Colors.black,
                 size: 20,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Anlaşmalı",
               style: TextStyle(fontSize: 22),
             ),
-            trailing: Icon(Icons.arrow_forward_ios_outlined),
+            trailing: const Icon(Icons.arrow_forward_ios_outlined),
           ),
 
           ListTile(
             onTap: () {},
-            contentPadding: EdgeInsets.only(
+            contentPadding: const EdgeInsets.only(
               left: 40,
               right: 30,
             ),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.green.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.person_outline_rounded,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Doktorlarımız",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
           ),
           ListTile(
             onTap: () {},
-            contentPadding: EdgeInsets.only(
+            contentPadding: const EdgeInsets.only(
               left: 40,
               right: 30,
             ),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.green.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.local_convenience_store_outlined,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Sağlık Kuruluşları",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
           ),
           ListTile(
             onTap: () {},
-            contentPadding: EdgeInsets.only(left: 40, right: 30),
+            contentPadding: const EdgeInsets.only(left: 40, right: 30),
             leading: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.yellow[800]!.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.local_convenience_store_outlined,
                 color: Colors.black,
                 size: 15,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Medikal Firmalar",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),

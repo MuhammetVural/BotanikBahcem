@@ -38,6 +38,7 @@ dependencies:
 
   #image işlemleri
   image_picker: ^0.8.6
+  flutter_rating_bar: ^4.0.1
 
   #firebase işlemleri
   firebase_core: ^2.1.1
@@ -76,6 +77,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/doktorlar/
   #  - assets/icons/
   #   - images/a_dot_ham.jpeg
 
