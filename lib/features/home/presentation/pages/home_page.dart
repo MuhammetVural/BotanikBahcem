@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
               child: const Padding(
                 padding: EdgeInsets.only(left: 15),
                 child: Text(
-                  'Bahçenizde görmek iistedikleriniz?',
+                  'Bahçenizde Görmek İstedikleriniz',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
               child: const Padding(
                 padding: EdgeInsets.only(left: 15),
                 child: Text(
-                  'Anlaşmalı Sağlık Kurumları',
+                  'Botanikte En İyilerimiz',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
