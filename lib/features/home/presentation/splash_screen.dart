@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../core/global/global.dart';
 import '../../login/presentation/pages/login_page.dart';
 
-
-
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
 
@@ -15,12 +13,9 @@ class MySplashScreen extends StatefulWidget {
 }
 
 class _MySplashScreenState extends State<MySplashScreen> {
-
-  startTimer(){
-
-
+  startTimer() {
     Timer(const Duration(seconds: 5), () async {
-      Navigator.push(context, MaterialPageRoute(builder: (c)=> const SignInScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (c) => HomePage()));
 
 //      if(fAuth.currentUser != null){
 //
@@ -31,11 +26,9 @@ class _MySplashScreenState extends State<MySplashScreen> {
 //      else{
 //        Navigator.push(context, MaterialPageRoute(builder: (c)=> LoginPage()));
 //      }
-
-
-    }
-    );
+    });
   }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -52,18 +45,26 @@ class _MySplashScreenState extends State<MySplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/images/botanik-bahcem.webp", width: 219, height: 182,),
-              const SizedBox(height: 10,),
+              Image.asset(
+                "assets/images/botanik-bahcem.webp",
+                width: 219,
+                height: 182,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               const Padding(
                 padding: EdgeInsets.all(18.0),
-                child: Text('Botanik Bahçem',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 40,
-                  fontFamily:   "SedgwickAveDisplay",
-                  letterSpacing: 3,
-                ),),
+                child: Text(
+                  'Botanik Bahçem',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontFamily: "SedgwickAveDisplay",
+                    letterSpacing: 3,
+                  ),
+                ),
               )
             ],
           ),
