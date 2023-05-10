@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future saveDataToFirestore(User currentUser) async {
-    FirebaseFirestore.instance.collection("sellers").doc(currentUser.uid).set({
+    FirebaseFirestore.instance.collection("users").doc(currentUser.uid).set({
       "sellerUID": currentUser.uid,
       "sellerEmail": currentUser.email,
       "sellerName": _userNameTextController.text.trim(),
