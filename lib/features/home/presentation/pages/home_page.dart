@@ -15,14 +15,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List symptoms = [
-    "Ateş",
-    "Soğuk Algınlığı",
-    "Öksürük",
-    "Mide Bulantısı",
-    "Baş Ağrısı",
-    "Kol Ağrısı",
-    "Diş Ağrısı",
-    "Karın Ağrısı",
+    "Domates",
+    "Fesleğen",
+    "Gül",
+    "Lale",
+    "Biber",
+    "Nergiz",
+    "Karpuz",
+    "Kabak",
   ];
   List img = [
     "d1.jpg",
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('data'),),
+      appBar: AppBar(title: const Text('Botanik Bahçem'),),
       drawer: const MainDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
                     decoration: BoxDecoration(
                         color: Theme
                             .of(context)
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                           height: 30,
                         ),
                         const Text(
-                          'Kliniklere Göz At',
+                          'Bahçeni Paylaş',
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                           height: 5,
                         ),
                         const Text(
-                          'Randevu Al',
+                          'Sorunlarını Yaz',
                           style: TextStyle(
                             color: Colors.white54,
                           ),
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                           height: 30,
                         ),
                         Text(
-                          'Evde Bakım        ',
+                          'Forumlara Gözat',
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Theme
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                           height: 5,
                         ),
                         Text(
-                          'Doktor Evini Ara',
+                          'Deneyimler Keşfet',
                           style: TextStyle(
                             color:
                             Theme
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
               child: const Padding(
                 padding: EdgeInsets.only(left: 15),
                 child: Text(
-                  'Semptomlarınız nelerdir?',
+                  'Bahçenizde görmek iistedikleriniz?',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
