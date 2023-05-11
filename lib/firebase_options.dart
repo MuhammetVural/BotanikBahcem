@@ -47,30 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAvsftQWN99iQ9ILLTMTEJEQoqv-htmuuY',
-    appId: '1:404197108359:web:5a2402a6dacdffc652a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    authDomain: 'botanikbahcem.firebaseapp.com',
-    storageBucket: 'botanikbahcem.appspot.com',
-    measurementId: 'G-VFR6CVNLC4',
+    apiKey: 'AIzaSyBdiMgjfS3TNTbuIUmznEX8zr2ul8_yVQ4',
+    appId: '1:978329881679:web:1cb4627b39a58cd2f1ee3a',
+    messagingSenderId: '978329881679',
+    projectId: 'datastoredeneme',
+    authDomain: 'datastoredeneme.firebaseapp.com',
+    storageBucket: 'datastoredeneme.appspot.com',
+    measurementId: 'G-SCFL6G5SVK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5srV3Qwzxj0e-QXS1EoGPGxa8YKhnxvw',
-    appId: '1:404197108359:android:b83a1152b796ba8e52a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
+    apiKey: 'AIzaSyAkIDcO_vkKpbw2cuPKOKhOOMJtcbR7PL0',
+    appId: '1:978329881679:android:21f77fc49be408d9f1ee3a',
+    messagingSenderId: '978329881679',
+    projectId: 'datastoredeneme',
+    storageBucket: 'datastoredeneme.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCwbdhRsDKsxUwRLjiD6V0XlzF9O9TTdH0',
-    appId: '1:404197108359:ios:b16f19b0acbfb2e152a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
-    iosClientId: '404197108359-r3kmr56o93heo82bo2cvkg7q49lfnnnr.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDMR8n5wWWBzzjZHYGsFWQf_y1ySk-BWRM',
+    appId: '1:978329881679:ios:ac3eea46d191acf0f1ee3a',
+    messagingSenderId: '978329881679',
+    projectId: 'datastoredeneme',
+    storageBucket: 'datastoredeneme.appspot.com',
+    iosClientId: '978329881679-q0au0q55hrtb2epdq8pkg22vg4k3h2ob.apps.googleusercontent.com',
     iosBundleId: 'com.botanik.botanikBahcem',
   );
 }

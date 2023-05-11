@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "404197108359",
-    "project_id": "botanikbahcem",
-    "storage_bucket": "botanikbahcem.appspot.com"
+    "project_number": "978329881679",
+    "project_id": "datastoredeneme",
+    "storage_bucket": "datastoredeneme.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:404197108359:android:b83a1152b796ba8e52a622",
+        "mobilesdk_app_id": "1:978329881679:android:21f77fc49be408d9f1ee3a",
         "android_client_info": {
           "package_name": "com.botanik.botanik_bahcem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "404197108359-abaldh1ida5u0cn2b2t335bigq0qo3au.apps.googleusercontent.com",
+          "client_id": "978329881679-a1teueorpilh7ectnamf53tgeugckced.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5srV3Qwzxj0e-QXS1EoGPGxa8YKhnxvw"
+          "current_key": "AIzaSyAkIDcO_vkKpbw2cuPKOKhOOMJtcbR7PL0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "404197108359-abaldh1ida5u0cn2b2t335bigq0qo3au.apps.googleusercontent.com",
+              "client_id": "978329881679-a1teueorpilh7ectnamf53tgeugckced.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "404197108359-r3kmr56o93heo82bo2cvkg7q49lfnnnr.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.botanik.botanikBahcem"
-              }
             }
           ]
         }
