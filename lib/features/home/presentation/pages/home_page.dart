@@ -1,4 +1,5 @@
 import 'package:botanik_bahcem/features/home/presentation/splash_screen.dart';
+import 'package:botanik_bahcem/features/home/presentation/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Botanik Bahçem'),),
-      drawer: const MainDrawer(),
+      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(10),
