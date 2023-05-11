@@ -47,33 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCxIwIJ3rtScWVbveBpYgE0Pa1yLcL0OkA',
-    appId: '1:718245008452:web:d8900e2906a06182bcd811',
-    messagingSenderId: '718245008452',
-    projectId: 'fotoupdate-9651d',
-    authDomain: 'fotoupdate-9651d.firebaseapp.com',
-    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
-    storageBucket: 'fotoupdate-9651d.appspot.com',
-    measurementId: 'G-FW81CHGT8W',
+    apiKey: 'AIzaSyBBLDEPLy2rb8ZFuAclA7C5btX_LIgLUFw',
+    appId: '1:528056598547:web:1ce730ac4866189caa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    authDomain: 'bim493-final-project.firebaseapp.com',
+    storageBucket: 'bim493-final-project.appspot.com',
+    measurementId: 'G-NFR1FB802X',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAgwKC9J5RwZRdhNDZ8UiIBqZCwCzrxjc8',
-    appId: '1:718245008452:android:d778838206eb369dbcd811',
-    messagingSenderId: '718245008452',
-    projectId: 'fotoupdate-9651d',
-    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
-    storageBucket: 'fotoupdate-9651d.appspot.com',
+    apiKey: 'AIzaSyDByGg6jL5C6ooTaUxqC343Ckjk-dJtVtk',
+    appId: '1:528056598547:android:03cf3b9a78811cadaa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    storageBucket: 'bim493-final-project.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBpBuKjD35F4jFXdW6fC5FSOpoMNORknc0',
-    appId: '1:718245008452:ios:45288b233bba3d38bcd811',
-    messagingSenderId: '718245008452',
-    projectId: 'fotoupdate-9651d',
-    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
-    storageBucket: 'fotoupdate-9651d.appspot.com',
-    iosClientId: '718245008452-e77nje90g185qb0in6pt9nkt9k98kodc.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBEGCfMn_hbXvvRHBnx1sSYs2QCc7b_2mI',
+    appId: '1:528056598547:ios:4b9e86ac6b140f2aaa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    storageBucket: 'bim493-final-project.appspot.com',
+    iosClientId: '528056598547-ckj1118udcn5ebneob6vq8grpgta2npn.apps.googleusercontent.com',
     iosBundleId: 'com.botanik.botanikBahcem',
   );
 }

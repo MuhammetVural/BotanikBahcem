@@ -1,41 +1,76 @@
 {
   "project_info": {
-    "project_number": "718245008452",
-    "firebase_url": "https://fotoupdate-9651d-default-rtdb.firebaseio.com",
-    "project_id": "fotoupdate-9651d",
-    "storage_bucket": "fotoupdate-9651d.appspot.com"
+    "project_number": "528056598547",
+    "project_id": "bim493-final-project",
+    "storage_bucket": "bim493-final-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:718245008452:android:d778838206eb369dbcd811",
+        "mobilesdk_app_id": "1:528056598547:android:03cf3b9a78811cadaa7fe6",
         "android_client_info": {
           "package_name": "com.botanik.botanik_bahcem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "718245008452-6ktv3qgtd84rr5vhiqd8vmu3r4pio0rf.apps.googleusercontent.com",
+          "client_id": "528056598547-6bnrh5oq1sb3ge9ftenbm54jhfh1armg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAgwKC9J5RwZRdhNDZ8UiIBqZCwCzrxjc8"
+          "current_key": "AIzaSyDByGg6jL5C6ooTaUxqC343Ckjk-dJtVtk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "718245008452-6ktv3qgtd84rr5vhiqd8vmu3r4pio0rf.apps.googleusercontent.com",
+              "client_id": "528056598547-6bnrh5oq1sb3ge9ftenbm54jhfh1armg.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "718245008452-9r53ten58vnv7bllibaprbp2usa6tskt.apps.googleusercontent.com",
+              "client_id": "528056598547-nd815i7al2jf05tlt983p2s5smbg0eor.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.vural.firebaseGoogleApisKodlari"
+                "bundle_id": "com.example.bim493Finalhw"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528056598547:android:87bf2164c75bb66baa7fe6",
+        "android_client_info": {
+          "package_name": "com.example.bim493_finalhw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528056598547-6bnrh5oq1sb3ge9ftenbm54jhfh1armg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDByGg6jL5C6ooTaUxqC343Ckjk-dJtVtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528056598547-6bnrh5oq1sb3ge9ftenbm54jhfh1armg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "528056598547-nd815i7al2jf05tlt983p2s5smbg0eor.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bim493Finalhw"
               }
             }
           ]
