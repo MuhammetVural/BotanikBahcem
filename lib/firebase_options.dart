@@ -47,30 +47,33 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAvsftQWN99iQ9ILLTMTEJEQoqv-htmuuY',
-    appId: '1:404197108359:web:28b50c00fce22a0c52a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    authDomain: 'botanikbahcem.firebaseapp.com',
-    storageBucket: 'botanikbahcem.appspot.com',
-    measurementId: 'G-7GP21GF939',
+    apiKey: 'AIzaSyCxIwIJ3rtScWVbveBpYgE0Pa1yLcL0OkA',
+    appId: '1:718245008452:web:d8900e2906a06182bcd811',
+    messagingSenderId: '718245008452',
+    projectId: 'fotoupdate-9651d',
+    authDomain: 'fotoupdate-9651d.firebaseapp.com',
+    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
+    storageBucket: 'fotoupdate-9651d.appspot.com',
+    measurementId: 'G-FW81CHGT8W',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5srV3Qwzxj0e-QXS1EoGPGxa8YKhnxvw',
-    appId: '1:404197108359:android:5d72b463f4333ee452a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
+    apiKey: 'AIzaSyAgwKC9J5RwZRdhNDZ8UiIBqZCwCzrxjc8',
+    appId: '1:718245008452:android:d778838206eb369dbcd811',
+    messagingSenderId: '718245008452',
+    projectId: 'fotoupdate-9651d',
+    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
+    storageBucket: 'fotoupdate-9651d.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCwbdhRsDKsxUwRLjiD6V0XlzF9O9TTdH0',
-    appId: '1:404197108359:ios:c95948bd9af6297652a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
-    iosClientId: '404197108359-r3kmr56o93heo82bo2cvkg7q49lfnnnr.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBpBuKjD35F4jFXdW6fC5FSOpoMNORknc0',
+    appId: '1:718245008452:ios:45288b233bba3d38bcd811',
+    messagingSenderId: '718245008452',
+    projectId: 'fotoupdate-9651d',
+    databaseURL: 'https://fotoupdate-9651d-default-rtdb.firebaseio.com',
+    storageBucket: 'fotoupdate-9651d.appspot.com',
+    iosClientId: '718245008452-e77nje90g185qb0in6pt9nkt9k98kodc.apps.googleusercontent.com',
     iosBundleId: 'com.botanik.botanikBahcem',
   );
 }
