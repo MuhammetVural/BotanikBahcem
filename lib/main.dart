@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.green,
       ),
-      home: const MySplashScreen(),
+      home: const SignInScreen(),
     );
   }
 }

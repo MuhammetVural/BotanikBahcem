@@ -47,30 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAvsftQWN99iQ9ILLTMTEJEQoqv-htmuuY',
-    appId: '1:404197108359:web:28b50c00fce22a0c52a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    authDomain: 'botanikbahcem.firebaseapp.com',
-    storageBucket: 'botanikbahcem.appspot.com',
-    measurementId: 'G-7GP21GF939',
+    apiKey: 'AIzaSyBBLDEPLy2rb8ZFuAclA7C5btX_LIgLUFw',
+    appId: '1:528056598547:web:1ce730ac4866189caa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    authDomain: 'bim493-final-project.firebaseapp.com',
+    storageBucket: 'bim493-final-project.appspot.com',
+    measurementId: 'G-NFR1FB802X',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5srV3Qwzxj0e-QXS1EoGPGxa8YKhnxvw',
-    appId: '1:404197108359:android:5d72b463f4333ee452a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
+    apiKey: 'AIzaSyDByGg6jL5C6ooTaUxqC343Ckjk-dJtVtk',
+    appId: '1:528056598547:android:03cf3b9a78811cadaa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    storageBucket: 'bim493-final-project.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCwbdhRsDKsxUwRLjiD6V0XlzF9O9TTdH0',
-    appId: '1:404197108359:ios:c95948bd9af6297652a622',
-    messagingSenderId: '404197108359',
-    projectId: 'botanikbahcem',
-    storageBucket: 'botanikbahcem.appspot.com',
-    iosClientId: '404197108359-r3kmr56o93heo82bo2cvkg7q49lfnnnr.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBEGCfMn_hbXvvRHBnx1sSYs2QCc7b_2mI',
+    appId: '1:528056598547:ios:4b9e86ac6b140f2aaa7fe6',
+    messagingSenderId: '528056598547',
+    projectId: 'bim493-final-project',
+    storageBucket: 'bim493-final-project.appspot.com',
+    iosClientId: '528056598547-ckj1118udcn5ebneob6vq8grpgta2npn.apps.googleusercontent.com',
     iosBundleId: 'com.botanik.botanikBahcem',
   );
 }
