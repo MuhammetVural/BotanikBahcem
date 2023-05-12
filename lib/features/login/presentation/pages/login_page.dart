@@ -36,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
           context: context,
           builder: (c) {
             return ErrorDialog(
-              message: "Please write email/password.",
+              message: "Lütfen email/şifre yazın.",
             );
           });
     }
@@ -127,7 +127,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: Text(
-                  'ECO-COURIER SELLERS',
+                  'Botanik Bahçem',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -141,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
               reuseableTextField('Email', Icons.person_outline, false, true,
                   _emailTextController),
               SizedBox(height: 20),
-              reuseableTextField('Password', Icons.lock_outline, true, true,
+              reuseableTextField('Şifre', Icons.lock_outline, true, true,
                   _passwordTextController),
               SizedBox(height: 40),
               signInSignOutButton(context, true, () {
@@ -164,7 +164,7 @@ Row signUpOption(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
-        "Don't have Account? ",
+        "Hesabınız yok mu? ",
         style: TextStyle(color: Colors.black),
       ),
       GestureDetector(
@@ -173,7 +173,7 @@ Row signUpOption(BuildContext context) {
               context, MaterialPageRoute(builder: (context) => const RegisterPage()));
         },
         child: Text(
-          "Sign Up",
+          "Kayıt ol",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),

@@ -128,7 +128,7 @@ Container normalButton(BuildContext context, String title,
             if (states.contains(MaterialState.pressed)) {
               return Colors.white70;
             }
-            return Colors.black;
+            return Colors.green;
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))),

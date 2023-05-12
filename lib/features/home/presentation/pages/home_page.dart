@@ -1,8 +1,12 @@
 import 'package:botanik_bahcem/features/home/presentation/splash_screen.dart';
+import 'package:botanik_bahcem/features/home/presentation/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 
+import '../../../upload_topic/presentation/pages/menus_upload_screen.dart';
 import '../widgets/drawer.dart';
+import '../widgets/theme_modal.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,9 +39,19 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Botanik Bahçem'),),
-      drawer: const MainDrawer(),
+    return Consumer(builder: (context, ThemeModal themeNotifier, child){
+
+      return Scaffold(
+      appBar: AppBar(title: const Text('Botanik Bahçem'), 
+      actions: [
+        Switch(
+        value: themeNotifier.isDark ? false : true, 
+        onChanged: (value){themeNotifier.isDark ? themeNotifier.isDark = false : themeNotifier.isDark = true;},
+        activeColor: Colors.white,
+        ),],
+        
+        ),
+      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(10),
@@ -47,7 +61,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MenusUploadScreen(),));
+                  },
                   child: Container(
                     padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
                     decoration: BoxDecoration(
@@ -339,5 +358,9 @@ class _HomePageState extends State<HomePage> {
 
       
       );
+
+
+    });
+    
   }
 }
