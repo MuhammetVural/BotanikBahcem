@@ -42,7 +42,15 @@ class _HomePageState extends State<HomePage> {
     return Consumer(builder: (context, ThemeModal themeNotifier, child){
 
       return Scaffold(
-      appBar: AppBar(title: const Text('Botanik Bahçem'), actions: [Switch(value: themeNotifier.isDark ? false : true, onChanged: (value){themeNotifier.isDark ? themeNotifier.isDark = false : themeNotifier.isDark = true;})],),
+      appBar: AppBar(title: const Text('Botanik Bahçem'), 
+      actions: [
+        Switch(
+        value: themeNotifier.isDark ? false : true, 
+        onChanged: (value){themeNotifier.isDark ? themeNotifier.isDark = false : themeNotifier.isDark = true;},
+        activeColor: Colors.white,
+        ),],
+        
+        ),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
