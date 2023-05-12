@@ -3,6 +3,7 @@ import 'package:botanik_bahcem/features/home/presentation/widgets/my_drawer.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../../../upload_topic/presentation/pages/menus_upload_screen.dart';
 import '../widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -48,7 +49,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MenusUploadScreen(),));
+                  },
                   child: Container(
                     padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
                     decoration: BoxDecoration(
