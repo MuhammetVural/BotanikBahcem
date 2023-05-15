@@ -300,8 +300,7 @@ class _MenusUploadScreenState extends State<MenusUploadScreen> {
 
   saveInfo(String downloadUrl, String text, String text2) {
     final ref = FirebaseFirestore.instance
-        .collection("sellers")
-        .doc(sharedPreferences!.getString("uid"))
+        .collection("sellers").doc(sharedPreferences!.getString("uid"))
         .collection("menus");
 
     ref.doc(uniqueIdName).set({
