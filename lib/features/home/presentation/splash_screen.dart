@@ -15,17 +15,17 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 5), () async {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => HomePage()));
+      
 
-//      if(fAuth.currentUser != null){
-//
-//       Navigator.push(context, MaterialPageRoute(builder: (c)=> const HomePage()));
-//
-//      }
-//
-//      else{
-//        Navigator.push(context, MaterialPageRoute(builder: (c)=> LoginPage()));
-//      }
+     if(fAuth.currentUser != null){
+
+      Navigator.push(context, MaterialPageRoute(builder: (c)=> const HomePage()));
+
+     }
+
+     else{
+       Navigator.push(context, MaterialPageRoute(builder: (c)=> SignInScreen()));
+     }
     });
   }
 
