@@ -1,4 +1,4 @@
-import 'package:botanik_bahcem/features/home/presentation/splash_screen.dart';
+import 'package:botanik_bahcem/features/splash/splash_screen.dart';
 import 'package:botanik_bahcem/features/home/presentation/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

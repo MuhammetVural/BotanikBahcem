@@ -1,5 +1,5 @@
 import 'package:botanik_bahcem/features/home/presentation/pages/home_page.dart';
-import 'package:botanik_bahcem/features/home/presentation/splash_screen.dart';
+import 'package:botanik_bahcem/features/splash/splash_screen.dart';
 import 'package:botanik_bahcem/features/home/presentation/widgets/theme_modal.dart';
 import 'package:botanik_bahcem/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';

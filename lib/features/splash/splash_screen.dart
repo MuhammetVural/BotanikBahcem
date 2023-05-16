@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:botanik_bahcem/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/global/global.dart';
-import '../../login/presentation/pages/login_page.dart';
+import '../../core/global/global.dart';
+import '../login/presentation/pages/login_page.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
