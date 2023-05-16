@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => const MenusUploadScreen(),));
                   },
                   child: Container(
-                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
+                    padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20, top: 20),
                     decoration: BoxDecoration(
                         color: Theme
                             .of(context)
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: const EdgeInsets.only(right: 30, left: 30, bottom: 20, top: 20),
+                    padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20, top: 20),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -192,6 +192,47 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(
               height: 25,
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: const Padding(
+                padding: EdgeInsets.only(left: 15),
+                child: Text(
+                  'Bahçenizde Görmek İstedikleriniz',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 55, child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: symptoms.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    decoration: BoxDecoration(
+                        color: Colors.white60,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(blurRadius: 4,
+                              spreadRadius: 2,
+                              color: Colors.black12),
+                        ]
+                    ),
+                    child: Center(child: Text(symptoms[index], style: const TextStyle(
+                        fontWeight: FontWeight.w500, fontSize: 12, color: Colors
+                        .black54
+                    ),)),
+                  );
+                }),
+            ),
+            const SizedBox(
+              height: 15,
             ),
             Container(
               alignment: Alignment.centerLeft,
