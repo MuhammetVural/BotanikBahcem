@@ -248,31 +248,87 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              height: 55, child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: symptoms.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    decoration: BoxDecoration(
-                        color: Colors.white60,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(blurRadius: 4,
-                              spreadRadius: 2,
-                              color: Colors.black12),
-                        ]
-                    ),
-                    child: Center(child: Text(symptoms[index], style: const TextStyle(
-                        fontWeight: FontWeight.w500, fontSize: 12, color: Colors
-                        .black54
-                    ),)),
-                  );
-                }),
-            ),
-            const SizedBox(height: 15,),
+                    height: 160,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.all(10),
+                            padding: EdgeInsets.symmetric(vertical: 5),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 4,
+                                  spreadRadius: 2,
+                                ),
+                              ],
+                            ),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.4,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    leading: CircleAvatar(
+                                      radius: 25,
+                                      backgroundColor: Theme.of(context)
+                                          .primaryColor
+                                          .withOpacity(0.3),
+                                    ),
+                                    title: Text(
+                                      "Mesut Köklü",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    subtitle: Text("1 gün önce"),
+                                    trailing: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        RatingBar.builder(
+                                          initialRating: 3,
+                                          minRating: 1,
+                                          direction: Axis.horizontal,
+                                          allowHalfRating: true,
+                                          itemCount: 1,
+                                          itemSize: 18,
+                                          itemPadding: EdgeInsets.symmetric(
+                                              horizontal: 1.0),
+                                          itemBuilder: (context, _) => Icon(
+                                            Icons.star,
+                                            color: Colors.amber,
+                                          ),
+                                          onRatingUpdate: (rating) {
+                                            print(rating);
+                                          },
+                                        ),
+                                        Text('4.8'),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 18),
+                                    child: Text(
+                                      "Çok teşekkür ederiz Dr. Deniz ",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 3,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                  ),const SizedBox(height: 15,),
             Container(
               alignment: Alignment.centerLeft,
               child: const Padding(
