@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/global/global.dart';
 import '../../../login/presentation/pages/login_page.dart';
 
-// bitklieri sulamak için oluşturulacak bir countdown timer 
+// bitklieri sulamak için oluşturulacak bir countdown timer  
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
