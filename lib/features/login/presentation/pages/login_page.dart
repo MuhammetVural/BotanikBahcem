@@ -62,50 +62,50 @@ class _SignInScreenState extends State<SignInScreen> {
     }).catchError((error) {
       Navigator.pop(context);
     });
-    Navigator.pop(context);
-       Navigator.push(
-           context, MaterialPageRoute(builder: (c) =>  HomePage()));
+    // Navigator.pop(context);
+    //    Navigator.push(
+    //        context, MaterialPageRoute(builder: (c) => HomePage()));
 
- //  if (currentUser != null) {
- //    readDataAndSetDataLocally(currentUser!).then((value) {
- //      Navigator.pop(context);
- //      Navigator.push(
- //          context, MaterialPageRoute(builder: (c) => const HomePage()));
- //    });
- //  }
+  if (currentUser != null) {
+    readDataAndSetDataLocally(currentUser!).then((value) {
+      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (c) => const HomePage()));
+    });
+  }
   }
 
-// Future readDataAndSetDataLocally(User currentUser) async {
-//   await FirebaseFirestore.instance
-//       .collection("sellers")
-//       .doc(currentUser.uid)
-//       .get()
-//       .then((snapshot) async {
-//     if (snapshot.exists) {
-//       await sharedPreferences!.setString("uid", currentUser.uid);
-//       await sharedPreferences!
-//           .setString("email", snapshot.data()!["sellerEmail"]);
-//       await sharedPreferences!
-//           .setString("name", snapshot.data()!["sellerName"]);
-//       await sharedPreferences!
-//           .setString("photoUrl", snapshot.data()!["sellerAvatarUrl"]);
-//       Navigator.push(
-//           context, MaterialPageRoute(builder: (c) => HomePage()));
-//     } else {
-//       fAuth.signOut();
-//       Navigator.pop(context);
-//       Navigator.push(
-//           context, MaterialPageRoute(builder: (c) => SignInScreen()));
-//       showDialog(
-//           context: context,
-//           builder: (c) {
-//             return const ErrorDialog(
-//               message: "No record exists. ",
-//             );
-//           });
-//     }
-//   });
-// }
+Future readDataAndSetDataLocally(User currentUser) async {
+  await FirebaseFirestore.instance
+      .collection("users")
+      .doc(currentUser.uid)
+      .get()
+      .then((snapshot) async {
+    if (snapshot.exists) {
+      await sharedPreferences!.setString("uid", currentUser.uid);
+      await sharedPreferences!
+          .setString("email", snapshot.data()!["sellerEmail"]);
+      await sharedPreferences!
+          .setString("name", snapshot.data()!["sellerName"]);
+      await sharedPreferences!
+          .setString("photoUrl", snapshot.data()!["sellerAvatarUrl"]);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (c) => HomePage()));
+    } else {
+      fAuth.signOut();
+      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (c) => SignInScreen()));
+      showDialog(
+          context: context,
+          builder: (c) {
+            return const ErrorDialog(
+              message: "No record exists. ",
+            );
+          });
+    }
+  });
+}
 
   @override
   Widget build(BuildContext context) {

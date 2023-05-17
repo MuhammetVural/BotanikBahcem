@@ -22,15 +22,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return ChangeNotifierProvider(create: (_) => ThemeModal(), child: Consumer(builder: (context, ThemeModal ThemeModal, child){
-      return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeModal.isDark ? ThemeData.dark() : ThemeData.light(),
-       home: HomePage(),
+    return ChangeNotifierProvider(
+      create: (_) => ThemeModal(),
+      child: Consumer(builder: (context, ThemeModal ThemeModal, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeModal.isDark ? ThemeData.dark() : ThemeData.light(),
+          home: const MySplashScreen(),
+        );
+      }),
     );
-    }),);
-    
   }
 }
