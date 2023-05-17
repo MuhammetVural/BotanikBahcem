@@ -43,6 +43,7 @@ class _CardDesignWidgetState extends State<CardDesignWidget> {
                     Ink.image(
                       //image: const NetworkImage("assets/slider/2.jpg"),
                        image:  NetworkImage(widget.model!.thumbnailUrl!,),
+                       
                       height: 150,
                       fit: BoxFit.cover,
                       child: InkWell(
