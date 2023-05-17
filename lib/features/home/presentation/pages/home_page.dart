@@ -1,15 +1,23 @@
 import 'package:botanik_bahcem/features/splash/splash_screen.dart';
 import 'package:botanik_bahcem/features/home/presentation/widgets/my_drawer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/global/global.dart';
+import '../../../itemsScreen.dart';
+import '../../../upload_topic/data/models/items_model.dart';
+import '../../../upload_topic/data/models/menus_model.dart';
 import '../../../upload_topic/presentation/pages/menus_upload_screen.dart';
+import '../../../upload_topic/presentation/widgets/items_card_design.dart';
+import '../../../upload_topic/presentation/widgets/progress_bar.dart';
 import '../widgets/drawer.dart';
 import '../widgets/theme_modal.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+   HomePage({super.key});
+  Menus? model;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -249,85 +257,34 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(
                     height: 160,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: EdgeInsets.all(10),
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 1.4,
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    leading: CircleAvatar(
-                                      radius: 25,
-                                      backgroundColor: Theme.of(context)
-                                          .primaryColor
-                                          .withOpacity(0.3),
-                                    ),
-                                    title: Text(
-                                      "Mesut Köklü",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    subtitle: Text("1 gün önce"),
-                                    trailing: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        RatingBar.builder(
-                                          initialRating: 3,
-                                          minRating: 1,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          itemCount: 1,
-                                          itemSize: 18,
-                                          itemPadding: EdgeInsets.symmetric(
-                                              horizontal: 1.0),
-                                          itemBuilder: (context, _) => Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                          ),
-                                          onRatingUpdate: (rating) {
-                                            print(rating);
-                                          },
-                                        ),
-                                        Text('4.8'),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 18),
-                                    child: Text(
-                                      "Çok teşekkür ederiz Dr. Deniz ",
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 3,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }),
+                    child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("sellers").doc(sharedPreferences!.getString('uid')).collection("menus").doc(widget.model!.menuID).collection("items")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    return !snapshot.hasData
+                        ? Padding(
+                      padding: EdgeInsets.all(0),
+                      child: circularProgress(),
+                    )
+                        : Container(
+                      padding: EdgeInsets.only(top: 15, bottom: 40),
+
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                          shrinkWrap: true, //important
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: snapshot.data!.docs.length,
+                          itemBuilder: (context, index) {
+                            Items model = Items.fromJson(
+                                snapshot.data!.docs[index].data());
+                            return ItemsCardDesign(
+                              model: model,
+                              context: context,
+                            );
+                          }),
+                    );
+                  }),
                   ),const SizedBox(height: 15,),
             Container(
               alignment: Alignment.centerLeft,
