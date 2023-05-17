@@ -28,7 +28,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(),
         ),
-        title: Text(sharedPreferences!.getString("name")!,),
+        title: Text(sharedPreferences!.getString("name") ?? 'Null',),
         centerTitle: true,
         actions: [
           IconButton(

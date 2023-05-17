@@ -64,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
     });
     Navigator.pop(context);
        Navigator.push(
-           context, MaterialPageRoute(builder: (c) => const HomePage()));
+           context, MaterialPageRoute(builder: (c) =>  HomePage()));
 
  //  if (currentUser != null) {
  //    readDataAndSetDataLocally(currentUser!).then((value) {

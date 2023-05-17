@@ -19,7 +19,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
 
      if(fAuth.currentUser != null){
 
-      Navigator.push(context, MaterialPageRoute(builder: (c)=> const HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (c)=> HomePage()));
 
      }
 
