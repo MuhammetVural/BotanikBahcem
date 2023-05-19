@@ -19,7 +19,7 @@ linearProgress() {
     child: const LinearProgressIndicator(
       backgroundColor: Colors.black45,
       valueColor: AlwaysStoppedAnimation(
-          Color(0xffCAFB09),
+          Colors.blue,
       ),
     ),
   );
