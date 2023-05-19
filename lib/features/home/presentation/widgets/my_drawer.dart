@@ -1,3 +1,4 @@
+import 'package:botanik_bahcem/features/bitkisulama/presentation/pages/bitkisulama_page.dart';
 import 'package:botanik_bahcem/features/havadurumu/presentation/pages/havadurumu.dart';
 import 'package:flutter/material.dart';
 
@@ -95,6 +96,7 @@ class MyDrawer extends StatelessWidget {
                      ),
                      onTap: ()
                      {
+                      Navigator.push(context, MaterialPageRoute(builder: (c)=> const BitkiSulamaPage()));
 
                      },
                    ),
