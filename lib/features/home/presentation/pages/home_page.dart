@@ -302,7 +302,7 @@ class _HomePageState extends State<HomePage> {
                 child: const Padding(
                   padding: EdgeInsets.only(left: 15),
                   child: Text(
-                    'Botanikte En İyilerimiz',
+                    'Popüler Kullanıcılar',
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,

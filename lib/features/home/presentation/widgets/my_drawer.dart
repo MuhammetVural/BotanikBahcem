@@ -96,7 +96,7 @@ class MyDrawer extends StatelessWidget {
                      ),
                      onTap: ()
                      {
-                      Navigator.push(context, MaterialPageRoute(builder: (c)=> const BitkiSulamaPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (c)=> TimerPage()));
 
                      },
                    ),

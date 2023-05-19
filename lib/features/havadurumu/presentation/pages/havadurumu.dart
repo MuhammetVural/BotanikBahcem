@@ -191,8 +191,10 @@ class _HavaDurumuState extends State<HavaDurumu> {
                       } else if (snapshot.hasError) {
                         return const Text('Veriler yüklenemedi..');
                       } else {
-                        return const CircularProgressIndicator(
-                          color: Colors.white,
+                        return Center(
+                          child: const CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
                         );
                       }
                     },
