@@ -43,62 +43,95 @@ class _PersonDesignWidgetState extends State<PersonDesignWidget> {
                   MaterialPageRoute(
                       builder: (context) => PersonScreen(model: widget.model)));
             },
-            child: Column(
-              children: [
-                ListTile(
-                  leading: CircleAvatar(
-                    foregroundImage: NetworkImage(widget.model!.sellerAvatarUrl!),
-                    radius: 25,
-                    backgroundColor:
-                        Theme.of(context).primaryColor.withOpacity(0.3),
-                  ),
-                  title: Text(
-                    widget.model!.menuTitle!,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  //test et
-                  subtitle: Text('1 gün önce'),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RatingBar.builder(
-                        initialRating: 3,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 1,
-                        itemSize: 18,
-                        itemPadding:
-                            const EdgeInsets.symmetric(horizontal: 1.0),
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        onRatingUpdate: (rating) {
-                          print(rating);
-                        },
+            child: Container(
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 4,
+                              spreadRadius: 2,
+                            )
+                          ]),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CircleAvatar(
+                            radius: 35,
+                            backgroundImage: NetworkImage(
+                                widget.model!.sellerAvatarUrl!),
+                          ),
+                          Text(
+                            widget.model!.sellerName!,
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black54,
+                            ),
+                          ),
+                           Text(
+                            widget.model!.sellerEmail!,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.black54,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              RatingBar.builder(
+                                initialRating: 3,
+                                minRating: 1,
+                                itemSize: 20,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemPadding:
+                                    const EdgeInsets.symmetric(horizontal: 1.0),
+                                itemBuilder: (context, index) {
+                                  switch (index) {
+                                    case 0:
+                                      return const Icon(
+                                        Icons.sentiment_very_dissatisfied_sharp,
+                                        color: Colors.red,
+                                      );
+                                    case 1:
+                                      return const Icon(
+                                        Icons.sentiment_dissatisfied,
+                                        color: Colors.redAccent,
+                                      );
+                                    case 2:
+                                      return const Icon(
+                                        Icons.sentiment_neutral_outlined,
+                                        color: Colors.amber,
+                                      );
+                                    case 3:
+                                      return const Icon(
+                                        Icons.sentiment_satisfied_alt,
+                                        color: Colors.lightGreen,
+                                      );
+                                    case 4:
+                                      return const Icon(
+                                        Icons.sentiment_very_satisfied,
+                                        color: Colors.green,
+                                      );
+                                  }
+                                  return Container();
+                                },
+                                onRatingUpdate: (rating) {
+                                  print(rating);
+                                },
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                      const Text('4.8'),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18),
-                  child: Text(
-                    widget.model!.menuInfo!,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                  ),
-                ),
-              ],
-            ),
+                    ),
           ),
         ),
       ),

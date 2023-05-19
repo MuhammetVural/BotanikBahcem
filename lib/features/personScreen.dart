@@ -22,6 +22,7 @@ class _PersonScreenState extends State<PersonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent.shade100,
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(),
@@ -34,72 +35,66 @@ class _PersonScreenState extends State<PersonScreen> {
       ),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            Center(
-              child: CircleAvatar(
-                          radius: 100,
-                          backgroundImage: NetworkImage(widget.model!.sellerAvatarUrl!)
-                        ),
-            ),
-            
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 20, top: 20),
-              child: Text(
-                widget.model!.menuTitle.toString(),
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ), //textAlign: TextAlign.start,
-              ),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 30, top: 20),
-              child: Text(
-                widget.model!.menuInfo.toString(),
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ), //textAlign: TextAlign.start,
-              ),
-            ),
+            const SizedBox(height: 50,),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection("sellers")
-                      .doc(sharedPreferences!.getString('uid'))
-                      .collection("menus")
-                      .doc(widget.model!.menuID)
-                      .collection("items")
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    return !snapshot.hasData
-                        ? Padding(
-                            padding: EdgeInsets.all(0),
-                            child: circularProgress(),
-                          )
-                        : Container(
-                            padding: EdgeInsets.only(top: 15, bottom: 40),
-                            width: MediaQuery.of(context).size.width,
-                            child: ListView.builder(
-                                shrinkWrap: true, //important
-                                physics: NeverScrollableScrollPhysics(),
-                                itemCount: snapshot.data!.docs.length,
-                                itemBuilder: (context, index) {
-                                  Items model = Items.fromJson(
-                                      snapshot.data!.docs[index].data());
-                                  return ItemsCardDesign(
-                                    model: model,
-                                    context: context,
-                                  );
-                                }),
-                          );
-                  }),
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleAvatar(
+                              radius: 100,
+                              backgroundImage: NetworkImage(widget.model!.sellerAvatarUrl!)
+                            ),
+                  const SizedBox(height: 15,),
+                  Text(widget.model!.sellerName!, style: const TextStyle(fontSize: 23, fontWeight: FontWeight.normal),),
+                  const SizedBox(height: 5,),
+                  Text(widget.model!.sellerEmail!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),),
+                
+                ],
+              ),
             ),
+            const SizedBox(height: 15,),
+
+            Text(widget.model!.sellerName!, style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),),
+            
+            
+         //   Padding(
+         //     padding: const EdgeInsets.all(8.0),
+         //     child: StreamBuilder(
+         //         stream: FirebaseFirestore.instance
+         //             .collection("sellers")
+         //             .doc(sharedPreferences!.getString('uid'))
+         //             .collection("menus")
+         //             .doc(widget.model!.menuID)
+         //             .collection("items")
+         //             .snapshots(),
+         //         builder: (context, snapshot) {
+         //           return !snapshot.hasData
+         //               ? Padding(
+         //                   padding: EdgeInsets.all(0),
+         //                   child: circularProgress(),
+         //                 )
+         //               : Container(
+         //                   padding: EdgeInsets.only(top: 15, bottom: 40),
+         //                   width: MediaQuery.of(context).size.width,
+         //                   child: ListView.builder(
+         //                       shrinkWrap: true, //important
+         //                       physics: NeverScrollableScrollPhysics(),
+         //                       itemCount: snapshot.data!.docs.length,
+         //                       itemBuilder: (context, index) {
+         //                         Items model = Items.fromJson(
+         //                             snapshot.data!.docs[index].data());
+         //                         return ItemsCardDesign(
+         //                           model: model,
+         //                           context: context,
+         //                         );
+         //                       }),
+         //                 );
+         //         }),
+         //   ),
           ],
         ),
       ),
