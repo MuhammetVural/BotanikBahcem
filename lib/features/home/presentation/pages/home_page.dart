@@ -266,7 +266,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 250,
+                height: 200,
                 child: StreamBuilder(
                     stream: FirebaseFirestore.instance
                         .collection("sellers")
@@ -281,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                               child: linearProgress(),
                             )
                           : Container(
-                              padding: EdgeInsets.only(top: 15, bottom: 40),
+                              padding: EdgeInsets.only(top: 15, bottom: 15),
                               width: MediaQuery.of(context).size.width,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
@@ -313,35 +313,34 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               StreamBuilder(
-                    stream: FirebaseFirestore.instance
-                        .collection("sellers")
-                        .orderBy("sellerUID", descending: true)
-                        .snapshots(),
-                    builder: (context, snapshot) {
-                      return !snapshot.hasData
-                          ? Padding(
-                              padding: EdgeInsets.all(0),
-                              child: linearProgress(),
-                            )
-                          : Container(
-                              padding: EdgeInsets.only(top: 15, bottom: 40),
-                              width: MediaQuery.of(context).size.width,
-                              child: GridView.builder(
-                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,),
-                                  scrollDirection: Axis.horizontal,
-                                  shrinkWrap: true, //important
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    Person model = Person.fromJson(
-                                        snapshot.data!.docs[index].data());
-                                    return PersonDesignWidget(
-                                      model: model,
-                                      context: context,
-                                    );
-                                  }),
-                            );
-                    }),
+                  stream: FirebaseFirestore.instance
+                      .collection("users")
+                      .orderBy("sellerUID", descending: true)
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    return !snapshot.hasData
+                        ? Padding(
+                            padding: EdgeInsets.all(0),
+                            child: linearProgress(),
+                          )
+                        : GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                            ),
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true, //important
+                            physics: BouncingScrollPhysics(),
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              Person model = Person.fromJson(
+                                  snapshot.data!.docs[index].data());
+                              return PersonDesignWidget(
+                                model: model,
+                                context: context,
+                              );
+                            });
+                  }),
             ],
           ),
         ),

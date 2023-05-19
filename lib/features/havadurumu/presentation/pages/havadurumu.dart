@@ -50,7 +50,6 @@ class _HavaDurumuState extends State<HavaDurumu> {
               top: true,
               child: Column(
                 children: [
-                  
                   const SizedBox(
                     height: 20,
                   ),
@@ -85,7 +84,7 @@ class _HavaDurumuState extends State<HavaDurumu> {
                               height: 10,
                             ),
                             const Text(
-                              '6 Aralık, 2023',
+                              '2 Haziran, 2023',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -99,7 +98,6 @@ class _HavaDurumuState extends State<HavaDurumu> {
                                 image: AssetImage(
                                   'assets/images/cloudy.png',
                                 ),
-                                
                               )),
                             ),
                             const SizedBox(
@@ -185,7 +183,6 @@ class _HavaDurumuState extends State<HavaDurumu> {
                             const SizedBox(
                               height: 30,
                             ),
-                            
                           ],
                         );
                       } else if (snapshot.hasError) {

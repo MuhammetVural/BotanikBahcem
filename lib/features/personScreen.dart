@@ -31,70 +31,88 @@ class _PersonScreenState extends State<PersonScreen> {
           sharedPreferences!.getString("name") ?? 'Null',
         ),
         centerTitle: true,
-       
       ),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CircleAvatar(
-                              radius: 100,
-                              backgroundImage: NetworkImage(widget.model!.sellerAvatarUrl!)
-                            ),
-                  const SizedBox(height: 15,),
-                  Text(widget.model!.sellerName!, style: const TextStyle(fontSize: 23, fontWeight: FontWeight.normal),),
-                  const SizedBox(height: 5,),
-                  Text(widget.model!.sellerEmail!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),),
-                
+                      radius: 100,
+                      backgroundImage:
+                          NetworkImage(widget.model!.sellerAvatarUrl!)),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    widget.model!.sellerName!,
+                    style: const TextStyle(
+                        fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    widget.model!.sellerEmail!,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.normal),
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
 
-            Text(widget.model!.sellerName!, style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),),
-            
-            
-         //   Padding(
-         //     padding: const EdgeInsets.all(8.0),
-         //     child: StreamBuilder(
-         //         stream: FirebaseFirestore.instance
-         //             .collection("sellers")
-         //             .doc(sharedPreferences!.getString('uid'))
-         //             .collection("menus")
-         //             .doc(widget.model!.menuID)
-         //             .collection("items")
-         //             .snapshots(),
-         //         builder: (context, snapshot) {
-         //           return !snapshot.hasData
-         //               ? Padding(
-         //                   padding: EdgeInsets.all(0),
-         //                   child: circularProgress(),
-         //                 )
-         //               : Container(
-         //                   padding: EdgeInsets.only(top: 15, bottom: 40),
-         //                   width: MediaQuery.of(context).size.width,
-         //                   child: ListView.builder(
-         //                       shrinkWrap: true, //important
-         //                       physics: NeverScrollableScrollPhysics(),
-         //                       itemCount: snapshot.data!.docs.length,
-         //                       itemBuilder: (context, index) {
-         //                         Items model = Items.fromJson(
-         //                             snapshot.data!.docs[index].data());
-         //                         return ItemsCardDesign(
-         //                           model: model,
-         //                           context: context,
-         //                         );
-         //                       }),
-         //                 );
-         //         }),
-         //   ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            )
+
+            //   Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: StreamBuilder(
+            //         stream: FirebaseFirestore.instance
+            //             .collection("sellers")
+            //             .doc(sharedPreferences!.getString('uid'))
+            //             .collection("menus")
+            //             .doc(widget.model!.menuID)
+            //             .collection("items")
+            //             .snapshots(),
+            //         builder: (context, snapshot) {
+            //           return !snapshot.hasData
+            //               ? Padding(
+            //                   padding: EdgeInsets.all(0),
+            //                   child: circularProgress(),
+            //                 )
+            //               : Container(
+            //                   padding: EdgeInsets.only(top: 15, bottom: 40),
+            //                   width: MediaQuery.of(context).size.width,
+            //                   child: ListView.builder(
+            //                       shrinkWrap: true, //important
+            //                       physics: NeverScrollableScrollPhysics(),
+            //                       itemCount: snapshot.data!.docs.length,
+            //                       itemBuilder: (context, index) {
+            //                         Items model = Items.fromJson(
+            //                             snapshot.data!.docs[index].data());
+            //                         return ItemsCardDesign(
+            //                           model: model,
+            //                           context: context,
+            //                         );
+            //                       }),
+            //                 );
+            //         }),
+            //   ),
           ],
         ),
       ),
