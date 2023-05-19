@@ -1,3 +1,4 @@
+import 'package:botanik_bahcem/features/havadurumu/presentation/pages/havadurumu.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/global/global.dart';
@@ -64,7 +65,7 @@ class MyDrawer extends StatelessWidget {
                    ListTile(
                      leading: const Icon(Icons.home, color: Colors.black,),
                      title: const Text(
-                       "Home",
+                       "Ana Sayfa",
                        style: TextStyle(color: Colors.black),
                      ),
                      onTap: ()
@@ -74,21 +75,22 @@ class MyDrawer extends StatelessWidget {
                    ),
 
                    ListTile(
-                     leading: const Icon(Icons.monetization_on, color: Colors.black,),
+                     leading: const Icon(Icons.cloud_circle, color: Colors.black,),
                      title: const Text(
-                       "My Earnings",
+                       "Hava Durumu",
                        style: TextStyle(color: Colors.black),
                      ),
                      onTap: ()
                      {
+                      Navigator.push(context, MaterialPageRoute(builder: (c)=> const HavaDurumu()));
 
                      },
                    ),
 
                    ListTile(
-                     leading: const Icon(Icons.local_shipping, color: Colors.black,),
+                     leading: const Icon(Icons.timer, color: Colors.black,),
                      title: const Text(
-                       "History - Orders",
+                       "Bitki Sulama",
                        style: TextStyle(color: Colors.black),
                      ),
                      onTap: ()
@@ -97,27 +99,27 @@ class MyDrawer extends StatelessWidget {
                      },
                    ),
 
-                   ListTile(
-                     leading: const Icon(Icons.reorder, color: Colors.black,),
-                     title: const Text(
-                       "New Orders",
-                       style: TextStyle(color: Colors.black),
-                     ),
-                     onTap: ()
-                     {
+               //  ListTile(
+               //    leading: const Icon(Icons.reorder, color: Colors.black,),
+               //    title: const Text(
+               //      "New Orders",
+               //      style: TextStyle(color: Colors.black),
+               //    ),
+               //    onTap: ()
+               //    {
 
-                     },
-                   ),
+               //    },
+               //  ),
 
-                   const Divider(
-                     height: 0,
-                     color: Colors.grey,
+               //  const Divider(
+               //    height: 0,
+               //    color: Colors.grey,
 
-                   ),
+               //    ),
                    ListTile(
                      leading: const Icon(Icons.exit_to_app, color: Colors.black,),
                      title: const Text(
-                       "Sign Out",
+                       "Çıkış Yap",
                        style: TextStyle(color: Colors.black),
                      ),
                      onTap: ()
